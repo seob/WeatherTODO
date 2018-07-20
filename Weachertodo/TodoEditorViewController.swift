@@ -11,9 +11,11 @@ import UIKit
 class TodoEditorViewController: UIViewController {
     
      
+//    @IBOutlet weak var TitleTextField: UITextField!
+//    @IBOutlet weak var ContentTextView: UITextView!
+    
     @IBOutlet weak var TitleTextField: UITextField!
     @IBOutlet weak var ContentTextView: UITextView!
-    
     @IBAction func Savehandel(_ sender: Any) {
         checkFieldValue()
         makePostCall()
@@ -22,40 +24,54 @@ class TodoEditorViewController: UIViewController {
     
     func makePostCall() {
         let todopoint = "http://seob1.kakaoapps.co.kr/api/todo.php"
-        guard let tuduURL = URL(string: todopoint) else { return print("Error: cannot create URL")}
+        guard let todoURL = URL(string: todopoint) else { return print("Error: cannot create URL")}
         
-        let data = self.tasks.map {
-            [
-                "title": $0.title,
-                "content": $0.content,
-            ]
-        }
-       // guard let jsonTodo = try? JSONSerialization.dat
-//        let newTodo: [String: Any] = ["title": "My First todo", "completed": false, "userId": 1]
-//        guard let jsonTodo = try? JSONSerialization.data(withJSONObject: newTodo) else { return }
-//
-//        var todosUrlRequest = URLRequest(url: todosURL)
-//        todosUrlRequest.httpMethod = "POST"
-//        todosUrlRequest.httpBody = jsonTodo
-//
-//        let session = URLSession.shared
-//        let task = session.dataTask(with: todosUrlRequest) { (data, response, error) in
-//            guard error == nil else { return print(error!) }
-//            guard let data = data else { return print("Error: did not receive data") }
-//
-//            do {
-//                guard let receivedTodo = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-//                    let todoID = receivedTodo["id"] as? Int
-//                    else { return print("Could not get JSON from responseData as dictionary") }
-//
-//                print(receivedTodo)
-//                print("The ID is: \(todoID)")
-//            } catch  {
-//                print("error parsing response from POST on /todos")
-//                return
-//            }
+//        let newdata = self.tasks.map {
+//            [
+//                "act" : "post",
+//                "title": $0.title,
+//                "content": $0.content,
+//            ]
 //        }
-//        task.resume()
+        
+        let newdata: [String: Any] = [
+                                        "act": "post",
+                                        "title": TitleTextField.text ?? "",
+                                        "conten": ContentTextView.text ?? ""
+                                    ]
+        
+
+        
+        guard let jsonTodo = try? JSONSerialization.data(withJSONObject: newdata) else { return }
+        
+        var todosUrlRequest = URLRequest(url: todoURL)
+        let config = URLSessionConfiguration.default  
+        let session = URLSession(configuration: config)
+        
+        todosUrlRequest.httpBody = jsonTodo
+        let task = session.dataTask(with: todosUrlRequest) { (data, response, error) in
+            guard error == nil else { return print(error!) }
+            
+            guard let response = response as? HTTPURLResponse, 200..<400 ~= response.statusCode else {
+                print("StatusCode is not valid")
+                return
+            }
+            
+            guard let data = data else { return print("Error: did not receive data") }
+            print(data)
+            do {
+                guard let receivedTodo = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+                    else { return print("Could not get JSON from responseData as dictionary") }
+
+                print(receivedTodo)
+            }catch{
+                print("error parsing response from POST on /todos")
+                return
+            }
+            
+            
+        }
+        task.resume()
     }
     override func viewDidLoad() {
         super.viewDidLoad()

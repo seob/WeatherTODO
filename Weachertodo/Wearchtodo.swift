@@ -9,11 +9,13 @@
 import Foundation
 
 struct Todo {
-    var title: String
+    let act: String
+    let title: String
     var content: String?
-    var regdt: String
+    let regdt: String
     
-    init(title: String, content: String? = nil, regdt: String) {
+    init(act: String, title: String, content: String? = nil, regdt: String) {
+        self.act = act
         self.title = title
         self.content = content
         self.regdt = regdt

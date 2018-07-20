@@ -112,7 +112,7 @@
         <!--메모작성-->
         <scene sceneID="5CA-S7-5pe">
             <objects>
-                <viewController title="메모작성" id="0bX-ty-pVg" sceneMemberID="viewController">
+                <viewController title="메모작성" id="0bX-ty-pVg" customClass="TodoEditorViewController" customModule="Weachertodo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NNy-3l-BN7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,6 +139,9 @@
                                     <constraint firstAttribute="width" constant="100" id="KY6-9p-VeQ"/>
                                 </constraints>
                                 <state key="normal" title="저장"/>
+                                <connections>
+                                    <action selector="Savehandel:" destination="0bX-ty-pVg" eventType="touchUpInside" id="Ctz-46-tnQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,6 +158,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S89-Qz-K4O"/>
                     </view>
+                    <connections>
+                        <outlet property="ContentTextView" destination="rVI-0i-hvH" id="uv0-OG-LgE"/>
+                        <outlet property="TitleTextField" destination="eEE-KM-G0C" id="qu6-nA-T7L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOY-Q1-VQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
