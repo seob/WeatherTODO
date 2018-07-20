@@ -10,12 +10,9 @@ import UIKit
 
 class TodoEditorViewController: UIViewController {
     
-     
-//    @IBOutlet weak var TitleTextField: UITextField!
-//    @IBOutlet weak var ContentTextView: UITextView!
-    
     @IBOutlet weak var TitleTextField: UITextField!
-    @IBOutlet weak var ContentTextView: UITextView!
+    
+    @IBOutlet weak var ContentTextView: UITextView! 
     @IBAction func Savehandel(_ sender: Any) {
         checkFieldValue()
         makePostCall()
