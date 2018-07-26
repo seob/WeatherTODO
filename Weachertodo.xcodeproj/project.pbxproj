@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21DC3B498A27D925848115F2 /* Pods_Weachertodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E2CC8B7DC9F456B5854ED8 /* Pods_Weachertodo.framework */; };
+		2A5A1F5A21058FAF00FD4AE9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A1F5921058FAF00FD4AE9 /* CustomTableViewCell.swift */; };
 		2A70B98C210178C400A116BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B98B210178C400A116BF /* AppDelegate.swift */; };
 		2A70B98E210178C400A116BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B98D210178C400A116BF /* ViewController.swift */; };
 		2A70B991210178C400A116BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A70B98F210178C400A116BF /* Main.storyboard */; };
 		2A70B993210178C500A116BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A70B992210178C500A116BF /* Assets.xcassets */; };
 		2A70B996210178C500A116BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A70B994210178C500A116BF /* LaunchScreen.storyboard */; };
-		2A70B99E210186C900A116BF /* Wearchtodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B99D210186C900A116BF /* Wearchtodo.swift */; };
+		2A70B99E210186C900A116BF /* WeatherTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B99D210186C900A116BF /* WeatherTodo.swift */; };
 		2A70B9A02101882800A116BF /* TodoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B99F2101882800A116BF /* TodoEditorViewController.swift */; };
 		2A70B9A221018EE800A116BF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B9A121018EE800A116BF /* Common.swift */; };
+		2A70B9A62101C94400A116BF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A70B9A52101C94400A116BF /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DAF0E4460D5763DEDBADF2A /* Pods-Weachertodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weachertodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weachertodo/Pods-Weachertodo.release.xcconfig"; sourceTree = "<group>"; };
+		2A5A1F5921058FAF00FD4AE9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2A70B988210178C400A116BF /* Weachertodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weachertodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A70B98B210178C400A116BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A70B98D210178C400A116BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,9 +30,12 @@
 		2A70B992210178C500A116BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A70B995210178C500A116BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A70B997210178C500A116BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A70B99D210186C900A116BF /* Wearchtodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wearchtodo.swift; sourceTree = "<group>"; };
+		2A70B99D210186C900A116BF /* WeatherTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTodo.swift; sourceTree = "<group>"; };
 		2A70B99F2101882800A116BF /* TodoEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorViewController.swift; sourceTree = "<group>"; };
 		2A70B9A121018EE800A116BF /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		2A70B9A52101C94400A116BF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		81737A041CD2E45DB9F0E5CC /* Pods-Weachertodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weachertodo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weachertodo/Pods-Weachertodo.debug.xcconfig"; sourceTree = "<group>"; };
+		96E2CC8B7DC9F456B5854ED8 /* Pods_Weachertodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weachertodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21DC3B498A27D925848115F2 /* Pods_Weachertodo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,8 @@
 			children = (
 				2A70B98A210178C400A116BF /* Weachertodo */,
 				2A70B989210178C400A116BF /* Products */,
+				BE4DD1BCF10BF2AFD0EB4F9D /* Pods */,
+				B6533FAA24678B3BDDA275BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,8 +73,10 @@
 			children = (
 				2A70B98B210178C400A116BF /* AppDelegate.swift */,
 				2A70B98D210178C400A116BF /* ViewController.swift */,
-				2A70B99D210186C900A116BF /* Wearchtodo.swift */,
+				2A70B99D210186C900A116BF /* WeatherTodo.swift */,
 				2A70B99F2101882800A116BF /* TodoEditorViewController.swift */,
+				2A70B9A52101C94400A116BF /* MainViewController.swift */,
+				2A5A1F5921058FAF00FD4AE9 /* CustomTableViewCell.swift */,
 				2A70B9A121018EE800A116BF /* Common.swift */,
 				2A70B98F210178C400A116BF /* Main.storyboard */,
 				2A70B992210178C500A116BF /* Assets.xcassets */,
@@ -73,6 +86,23 @@
 			path = Weachertodo;
 			sourceTree = "<group>";
 		};
+		B6533FAA24678B3BDDA275BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96E2CC8B7DC9F456B5854ED8 /* Pods_Weachertodo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE4DD1BCF10BF2AFD0EB4F9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81737A041CD2E45DB9F0E5CC /* Pods-Weachertodo.debug.xcconfig */,
+				1DAF0E4460D5763DEDBADF2A /* Pods-Weachertodo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A70B99A210178C500A116BF /* Build configuration list for PBXNativeTarget "Weachertodo" */;
 			buildPhases = (
+				160F5B2F28B918C94C96698D /* [CP] Check Pods Manifest.lock */,
 				2A70B984210178C400A116BF /* Sources */,
 				2A70B985210178C400A116BF /* Frameworks */,
 				2A70B986210178C400A116BF /* Resources */,
+				B29CD79B8CC3D5B9E729821B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,14 +171,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		160F5B2F28B918C94C96698D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Weachertodo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B29CD79B8CC3D5B9E729821B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Weachertodo/Pods-Weachertodo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weachertodo/Pods-Weachertodo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A70B984210178C400A116BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A70B99E210186C900A116BF /* Wearchtodo.swift in Sources */,
+				2A70B99E210186C900A116BF /* WeatherTodo.swift in Sources */,
 				2A70B9A02101882800A116BF /* TodoEditorViewController.swift in Sources */,
 				2A70B98E210178C400A116BF /* ViewController.swift in Sources */,
+				2A5A1F5A21058FAF00FD4AE9 /* CustomTableViewCell.swift in Sources */,
+				2A70B9A62101C94400A116BF /* MainViewController.swift in Sources */,
 				2A70B9A221018EE800A116BF /* Common.swift in Sources */,
 				2A70B98C210178C400A116BF /* AppDelegate.swift in Sources */,
 			);
@@ -290,6 +363,7 @@
 		};
 		2A70B99B210178C500A116BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81737A041CD2E45DB9F0E5CC /* Pods-Weachertodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +382,7 @@
 		};
 		2A70B99C210178C500A116BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DAF0E4460D5763DEDBADF2A /* Pods-Weachertodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

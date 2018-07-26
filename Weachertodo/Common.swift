@@ -19,7 +19,7 @@ extension TodoEditorViewController {
     func alertWithTitle(title: String!, message: String, ViewController: UIViewController, toFocus:UITextField, showpage: Int) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel,handler: {_ in
-            switch showpage {
+            switch showpage { 
     //        case 2:
     //            let registVC = RegistViewController()
     //            self.present(registVC, animated: true) {
@@ -33,4 +33,6 @@ extension TodoEditorViewController {
         alert.addAction(action)
         ViewController.present(alert, animated: true, completion:nil)
     }
+    
+    
 }

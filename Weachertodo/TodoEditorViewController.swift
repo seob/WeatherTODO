@@ -7,77 +7,82 @@
 //
 
 import UIKit
+import Alamofire
 
 class TodoEditorViewController: UIViewController {
     
     @IBOutlet weak var TitleTextField: UITextField!
     
-    @IBOutlet weak var ContentTextView: UITextView! 
+    @IBOutlet weak var ContentTextView: UITextView!
     @IBAction func Savehandel(_ sender: Any) {
         checkFieldValue()
         makePostCall()
     }
-    var tasks = [Todo]()
     
     func makePostCall() {
         let todopoint = "http://seob1.kakaoapps.co.kr/api/todo.php"
-        guard let todoURL = URL(string: todopoint) else { return print("Error: cannot create URL")}
+        let title = (self.TitleTextField.text)!
+        let memo = self.ContentTextView.text ?? ""
         
-//        let newdata = self.tasks.map {
-//            [
-//                "act" : "post",
-//                "title": $0.title,
-//                "content": $0.content,
-//            ]
-//        }
-        
-        let newdata: [String: Any] = [
-                                        "act": "post",
-                                        "title": TitleTextField.text ?? "",
-                                        "conten": ContentTextView.text ?? ""
-                                    ]
-        
-
-        
-        guard let jsonTodo = try? JSONSerialization.data(withJSONObject: newdata) else { return }
-        
-        var todosUrlRequest = URLRequest(url: todoURL)
-        let config = URLSessionConfiguration.default  
-        let session = URLSession(configuration: config)
-        
-        todosUrlRequest.httpBody = jsonTodo
-        let task = session.dataTask(with: todosUrlRequest) { (data, response, error) in
-            guard error == nil else { return print(error!) }
-            
-            guard let response = response as? HTTPURLResponse, 200..<400 ~= response.statusCode else {
-                print("StatusCode is not valid")
-                return
-            }
-            
-            guard let data = data else { return print("Error: did not receive data") }
-            print(data)
-            do {
-                guard let receivedTodo = try JSONSerialization.jsonObject(with: data) as? [String: Any]
-                    else { return print("Could not get JSON from responseData as dictionary") }
-
-                print(receivedTodo)
-            }catch{
-                print("error parsing response from POST on /todos")
-                return
-            }
-            
-            
+        let parameters: [String: Any] = [
+                "act"   : "regist",
+                "title": title,
+                "content": memo,
+            ]
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            ]
+        //$_SERVER["REQUEST_METHOD"]
+        Alamofire
+            .request(todopoint, method: .post, parameters: parameters, headers: headers)
+            .validate(statusCode: 200..<400)
+            .responseJSON { [weak self] response in
+                switch(response.result)
+                {
+                case .success(_):
+                    if response.result.value != nil
+                    {
+                        let dict :NSDictionary = response.result.value! as! NSDictionary
+                        
+                        let status = dict.value(forKey: "status")as! Int
+                        let responseMsg = dict.value(forKey: "msg")as! String
+                        if(status == 1)
+                        {
+                           self?.alertWithTitle(title: responseMsg, message: "", ViewController: self!, toFocus: self!.TitleTextField, showpage: 2)
+                        }
+                        else
+                        {
+                            print("Something Missed")
+                        }
+                    }
+                    break
+                    
+                case .failure(_):
+                    print(response.result.error!)
+                    break
+                }
         }
-        task.resume()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TitleTextField.delegate = self
-        TitleTextField.text = ""
-        TitleTextField.placeholder = "제목을 입력해주세요"
         self.TitleTextField.resignFirstResponder()
-
-        print("test")
+    }
+   
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        ContentTextView.delegate = self
+        ContentTextView.text = "내용을 입력해주세요"
+        ContentTextView.textColor = UIColor.lightGray
+ 
+    }
+    
+    //화면 터치시 키패드 숨기기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     func checkFieldValue() -> Bool {
@@ -91,10 +96,7 @@ class TodoEditorViewController: UIViewController {
         }
         return errors
     }
-    //화면 터치시 키패드 숨기기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
-    }
+ 
 }
 
 // MARK: - TodoEditorViewController
@@ -106,6 +108,26 @@ extension TodoEditorViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
+    }
+}
+
+extension TodoEditorViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if !ContentTextView.text!.isEmpty && ContentTextView.text! == "내용을 입력해주세요"
+        {
+            ContentTextView.text = ""
+            ContentTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)
+    {
+        if ContentTextView.text.isEmpty
+        {
+            ContentTextView.text = "내용을 입력해주세요"
+            ContentTextView.textColor = UIColor.lightGray
+        }
     }
 }
 
